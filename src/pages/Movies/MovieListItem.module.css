@@ -1,0 +1,8 @@
+.movie_item {
+  width: calc((100% / 3) - 40px);
+  text-align: center;
+}
+
+.poster {
+  width: 100%;
+}

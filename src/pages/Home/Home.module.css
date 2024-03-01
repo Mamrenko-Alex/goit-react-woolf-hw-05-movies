@@ -1,0 +1,13 @@
+.movie_section {
+  display: flex;
+  justify-content: center;
+}
+
+.movie_list {
+  margin: 40px auto;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 20px;
+}

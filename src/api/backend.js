@@ -14,7 +14,6 @@ class MovieAPI {
   async getPopularMovies() {
     try {
       const response = await axios.get(`/trending/all/day`);
-      console.log(response.data);
       return response.data;
       //   List with results, more 1000 pages. In response.results Array with detail movies
     } catch (error) {
@@ -27,7 +26,6 @@ class MovieAPI {
       const response = await axios.get(`/search/movie`, {
         params: { query: name },
       });
-      console.log(response.data);
       return response.data;
       //   List with results, more 100th pages. In response.results Array with detail movies like getPopularMovies
     } catch (error) {
@@ -38,7 +36,6 @@ class MovieAPI {
   async getMovieDetail(id) {
     try {
       const response = await axios.get(`/movie/${id}`);
-      console.log(response.data);
       return response.data;
       //   Info about one movie
     } catch (error) {
@@ -49,7 +46,6 @@ class MovieAPI {
   async getMovieCredits(id) {
     try {
       const response = await axios.get(`/movie/${id}/credits`);
-      console.log(response.data);
       return response.data;
       //   data includes object with 2 keys: cast and crew
     } catch (error) {
@@ -60,7 +56,6 @@ class MovieAPI {
   async getMovieReviews(id) {
     try {
       const response = await axios.get(`/movie/${id}/reviews`);
-      console.log(response.data);
       return response.data;
       //   In response.results Array with detail reviews to movie by id
     } catch (error) {
