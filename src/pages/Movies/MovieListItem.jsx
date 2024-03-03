@@ -1,23 +1,22 @@
 import React from 'react';
 import styles from './MovieListItem.module.css';
+import { Link } from 'react-router-dom';
 
 export const MovieListItem = ({ movie }) => {
+  const { id, poster_path, title, name } = movie;
   return (
-    <li className={styles.movie_item}>
-      <img
-        className={styles.poster}
-        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-        alt={movie.title || movie.name}
-      />
+    <li className={styles.movie_item} id={id}>
+      <Link to={`/movies/${id}`}>
+        <img
+          className={styles.poster}
+          src={
+            poster_path
+              ? `https://image.tmdb.org/t/p/w500${poster_path}`
+              : 'https://cdn0.iconfinder.com/data/icons/videographer-filmmaker-and-cameraman/237/filming-002-512.png'
+          }
+          alt={title || name}
+        />
+      </Link>
     </li>
   );
 };
-
-// {movie.title || movie.name} Названия фильма путь зависит от типа контента. Фильм или сериал
-// { movie.media_type } Content type movie or tv(serial)
-
-/* <p>{movie.title || movie.name}</p>
-      <p> {movie.media_type}</p>
-      <p>{movie.overview}</p>
-      <p>{movie.release_date}</p>
-      <p>{movie.poster_path}</p> */

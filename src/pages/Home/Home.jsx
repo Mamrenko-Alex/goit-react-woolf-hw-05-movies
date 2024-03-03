@@ -2,7 +2,6 @@ import { fetchMovieAPI } from 'api/backend';
 import { MovieListItem } from 'pages/Movies/MovieListItem';
 import React, { useEffect, useState } from 'react';
 import styles from './Home.module.css';
-// import { Link } from 'react-router-dom';
 
 export const Home = () => {
   const [popularMovies, setPopularMovies] = useState([]);
@@ -19,8 +18,6 @@ export const Home = () => {
 
     fetchPopularMovies();
   }, []);
-
-  console.log(popularMovies);
 
   return (
     <section className={`container ${styles.movie_section}`}>

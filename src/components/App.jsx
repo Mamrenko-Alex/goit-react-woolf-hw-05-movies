@@ -1,25 +1,28 @@
-import { fetchMovieAPI } from 'api/backend';
+import React, { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
-
 import { Header } from './Header/Header';
 import { Home } from 'pages/Home/Home';
-import { Movies } from 'pages/Movies/Movies';
+
+const Movies = lazy(() => import('pages/Movies/Movies'));
+const MovieDetail = lazy(() => import('pages/Movies/MovieDetails'));
+const MovieCast = lazy(() => import('pages/Movies/MovieCast'));
+const MoviesReviews = lazy(() => import('pages/Movies/MovieReviews'));
 
 export const App = () => {
   return (
     <>
       <Header />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/movies" element={<Movies />} />
-      </Routes>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/movies" element={<Movies />} />
+          <Route path="/movies/:movieId" element={<MovieDetail />}>
+            <Route path="cast" element={<MovieCast />} />
+            <Route path="reviews" element={<MoviesReviews />} />
+          </Route>
+        </Routes>
+      </Suspense>
     </>
   );
 };
-
-fetchMovieAPI.getPopularMovies();
-fetchMovieAPI.getMovieDetail(1051);
-fetchMovieAPI.getMovieCredits(1051);
-fetchMovieAPI.getMovieReviews(1051);
-fetchMovieAPI.searchMovies('batman');

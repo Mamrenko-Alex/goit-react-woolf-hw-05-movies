@@ -13,7 +13,7 @@ class MovieAPI {
 
   async getPopularMovies() {
     try {
-      const response = await axios.get(`/trending/all/day`);
+      const response = await axios.get(`/trending/movie/day`);
       return response.data;
       //   List with results, more 1000 pages. In response.results Array with detail movies
     } catch (error) {
@@ -42,6 +42,16 @@ class MovieAPI {
       console.error('Something wrong: ', error.message);
     }
   }
+
+  // async getSeriesDetail(id) {
+  //   try {
+  //     const response = await axios.get(`/tv/${id}`);
+  //     return response.data;
+  //     //   Info about one series
+  //   } catch (error) {
+  //     console.error('Something wrong: ', error.message);
+  //   }
+  // }
 
   async getMovieCredits(id) {
     try {

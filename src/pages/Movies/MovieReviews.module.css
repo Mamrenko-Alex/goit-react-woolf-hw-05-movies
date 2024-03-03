@@ -1,0 +1,24 @@
+.reviewsHeader {
+  padding: 20px 0;
+  font-size: 32px;
+}
+
+.reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.review {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.reviewerName {
+  margin: 10px 0;
+}
+
+.reviewContent {
+  font-size: 18px;
+}
