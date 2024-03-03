@@ -22,7 +22,6 @@ const MovieCast = () => {
 
   const { cast } = credits;
 
-  console.log(cast);
   return (
     <div className={styles.castContainer}>
       <h3 className={styles.castHeader}>Cast</h3>

@@ -24,12 +24,9 @@ const Movies = () => {
     const fetchSearchMovie = async () => {
       const data = await fetchMovieAPI.searchMovies(searchName);
       setMovies(data.results);
-      console.log(data);
     };
     fetchSearchMovie();
   };
-
-  console.log(movies);
 
   return (
     <div>

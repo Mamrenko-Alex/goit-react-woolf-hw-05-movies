@@ -38,7 +38,6 @@ export const Header = () => {
           Home
         </StyledLink>
         <StyledLink to="/movies">Movies</StyledLink>
-        {/* <StyledLink to="/series">Series</StyledLink> */}
       </nav>
     </header>
   );
