@@ -4,9 +4,11 @@ import { Header } from './Header/Header';
 import { Home } from 'pages/Home/Home';
 
 const Movies = lazy(() => import('pages/Movies/Movies'));
-const MovieDetail = lazy(() => import('pages/Movies/MovieDetails'));
-const MovieCast = lazy(() => import('pages/Movies/MovieCast'));
-const MoviesReviews = lazy(() => import('pages/Movies/MovieReviews'));
+const MovieDetail = lazy(() => import('components/MovieDetail/MovieDetails'));
+const MovieCast = lazy(() => import('components/MoviesCast/MovieCast'));
+const MoviesReviews = lazy(() =>
+  import('components/MoviesReviews/MovieReviews')
+);
 
 export const App = () => {
   return (

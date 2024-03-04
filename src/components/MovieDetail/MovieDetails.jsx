@@ -39,7 +39,14 @@ const MovieDetail = () => {
       <section className={styles.movieInfoContainer}>
         <div className={styles.movieInfo}>
           <div className={styles.poster}>
-            <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt="" />
+            <img
+              src={
+                poster_path
+                  ? `https://image.tmdb.org/t/p/w500${poster_path}`
+                  : 'https://cdn0.iconfinder.com/data/icons/videographer-filmmaker-and-cameraman/237/filming-002-512.png'
+              }
+              alt={title}
+            />
           </div>
           <div className={styles.details}>
             <h1 className={styles.title}>{title}</h1>

@@ -1,7 +1,7 @@
 import { fetchMovieAPI } from 'api/backend';
-import { MovieListItem } from 'pages/Movies/MovieListItem';
 import React, { useEffect, useState } from 'react';
 import styles from './Home.module.css';
+import MovieList from 'components/MovieList/MovieList';
 
 export const Home = () => {
   const [popularMovies, setPopularMovies] = useState([]);
@@ -20,12 +20,8 @@ export const Home = () => {
   }, []);
 
   return (
-    <section className={`container ${styles.movie_section}`}>
-      <ul className={styles.movie_list}>
-        {popularMovies.map(movie => (
-          <MovieListItem key={movie.id} movie={movie} />
-        ))}
-      </ul>
-    </section>
+    <div className={`container ${styles.movie_section}`}>
+      <MovieList movies={popularMovies} />
+    </div>
   );
 };
