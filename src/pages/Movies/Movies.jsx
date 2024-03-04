@@ -19,9 +19,14 @@ const Movies = () => {
   };
 
   useEffect(() => {
-    if (query) {
-      fetchSearchMovie(query);
+    if (!query) {
+      return;
     }
+    const fetchSearchMovie = async () => {
+      const data = await fetchMovieAPI.searchMovies(query);
+      setSearchMovies(data.results);
+    };
+    fetchSearchMovie();
   }, [query]);
 
   return (
