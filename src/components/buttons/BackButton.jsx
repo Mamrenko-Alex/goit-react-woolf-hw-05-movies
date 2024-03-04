@@ -1,16 +1,15 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import styles from '../MovieDetail/MovieDetail.module.css';
 
 export const BackButton = () => {
-  const navigate = useNavigate();
+  const location = useLocation();
 
-  const handleGoBack = () => {
-    navigate(-1);
-  };
+  const backLinkHref = location.state?.from ?? '/';
 
   return (
-    <button type="button" onClick={handleGoBack}>
-      Back
-    </button>
+    <Link className={styles.linkButton} to={backLinkHref}>
+      Back to movies
+    </Link>
   );
 };

@@ -1,13 +1,13 @@
 import { fetchMovieAPI } from 'api/backend';
 import React, { useEffect, useState } from 'react';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import styles from './MovieDetail.module.css';
 import { BackButton } from 'components/buttons/BackButton';
-import { HomeButton } from 'components/buttons/HomeButtons';
 
 const MovieDetail = () => {
   const { movieId } = useParams();
   const [movieData, setMovieData] = useState({});
+  const location = useLocation();
 
   useEffect(() => {
     const fetchMoviesData = async () => {
@@ -35,7 +35,6 @@ const MovieDetail = () => {
   return (
     <>
       <BackButton />
-      <HomeButton />
       <section className={styles.movieInfoContainer}>
         <div className={styles.movieInfo}>
           <div className={styles.poster}>
@@ -68,10 +67,18 @@ const MovieDetail = () => {
           </div>
         </div>
         <div className={styles.linkContainer}>
-          <Link className={styles.linkButton} to={`/movies/${movieId}/cast`}>
+          <Link
+            className={styles.linkButton}
+            to={`/movies/${movieId}/cast`}
+            state={{ from: location }}
+          >
             Cast list
           </Link>
-          <Link className={styles.linkButton} to={`/movies/${movieId}/reviews`}>
+          <Link
+            className={styles.linkButton}
+            to={`/movies/${movieId}/reviews`}
+            state={{ from: location }}
+          >
             Reviews List
           </Link>
         </div>

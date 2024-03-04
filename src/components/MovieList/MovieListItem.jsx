@@ -1,12 +1,14 @@
 import React from 'react';
 import styles from './MovieListItem.module.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export const MovieListItem = ({ movie }) => {
+  const location = useLocation();
+
   const { id, poster_path, title, name } = movie;
   return (
     <li className={styles.movie_item} id={id}>
-      <Link to={`/movies/${id}`}>
+      <Link to={`/movies/${id}`} state={{ from: location }}>
         <img
           className={styles.poster}
           src={
